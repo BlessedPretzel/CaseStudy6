@@ -45,6 +45,10 @@ public class Snake {
         return this.direction;
     }
 
+    public void setHead(Point2D head) {
+        this.head = head;
+    }
+
     public Point2D getHead() {
         return this.head;
     }

@@ -59,20 +59,20 @@ public class GameLoopTest {
     }
 
     @Test
-    public void scoreIncreasedByOneAfterSnakeEatTheFood() throws InvocationTargetException, IllegalAccessException {
+    public void scoreIncreasedByOneAfterSnakeEatTheFood() throws InvocationTargetException, IllegalAccessException, InterruptedException {
         gameLoopUnderTest = new GameLoop(new Platform(), new Snake(new Point2D(0, 0)), new Food(new Point2D(0, 1), false));
-        assertEquals(gameLoopUnderTest.getPlatform().getScore().getValue(), 0);
+        assertEquals(0, gameLoopUnderTest.getPlatform().getScore().getValue());
+        Thread.sleep(100);
         clockTickHelper();
-        System.out.println("????");
-        assertEquals(gameLoopUnderTest.getPlatform().getScore().getValue(), 1);
+        assertEquals(1, gameLoopUnderTest.getPlatform().getScore().getValue());
     }
 
     @Test
-    public void scoreIncreasedByFiveAfterSnakeEatTheSpecialFood() throws InvocationTargetException, IllegalAccessException {
+    public void scoreIncreasedByFiveAfterSnakeEatTheSpecialFood() throws InvocationTargetException, IllegalAccessException, InterruptedException {
         gameLoopUnderTest = new GameLoop(new Platform(), new Snake(new Point2D(0, 0)), new Food(new Point2D(0, 1), true));
-        assertEquals(gameLoopUnderTest.getPlatform().getScore().getValue(), 0);
+        assertEquals(0, gameLoopUnderTest.getPlatform().getScore().getValue());
+        Thread.sleep(100);
         clockTickHelper();
-        System.out.println("????");
-        assertEquals(gameLoopUnderTest.getPlatform().getScore().getValue(), 5);
+        assertEquals(5, gameLoopUnderTest.getPlatform().getScore().getValue());
     }
 }
